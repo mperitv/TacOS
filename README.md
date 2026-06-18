@@ -8,9 +8,10 @@ Also, I used AI to debugging my code and to learn how can I use audio files in T
 ## 👥 Credits
 
 **Domino's Pizza** - Inspired an app name in my project (**DominOS** 🍕).
-**Roblox** I used "Pizza" sound effect
+**Roblox** I used "Pizza" sound effect.
 **ParryGripp** I inspired "Raining Tacos - Parry Gripp & BooneBum"music video and "Taco Bot". Link: https://www.youtube.com/watch?v=npjF032TDDQ&list=RDnpjF032TDDQ&start_radio=1
 **Create Your Personal Web-based Operating System** - For guidance. link: https://jams.hackclub.com/batch/webOS
+**Microsoft** I used the background of Windows XP.
 
 
 ## 📂 Project Structure

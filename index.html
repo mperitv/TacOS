@@ -2,11 +2,30 @@
 <html>
 <body style="margin: 0; overflow: hidden; background: #1500ff;">
 
-<img src="tacos_background.PNG" width="100%" style="position: fixed; left: 0; bottom: 50px;">
+<img src="tacos_background.PNG" width="100%" style="position: fixed; left: 0; bottom: 50px; width: 100%; z-index: 1;">
 
-<div style="position: absolute; top: 25%; left: 50%; transform: translate(-50%, -50%); width: 380px; border: 2px solid #1500ff; font-family: Tahoma;">
-    <div style="background: #1500ff; color: #ffffff; padding: 4px; font-size: 11px; font-weight: bold;">
-        Welcome to TacOS
+<p style="position: fixed; left: 28%; bottom: 250px; font-family: Tahoma; font-size: 17px; font-weight: bold; color: #000000; pointer-events: none; z-index: 2;">Welcome to TacOS!!</p>
+
+<div id="desktopApps" style="padding-top: 16px; padding-left: 16px; position: relative; z-index: 3; display: flex; flex-direction: column; align-items: flex-start;">
+    <div id="factsIcon" class="desktopicon" style="text-align: center; padding: 8px; cursor: pointer; color: #ffffff; font-family: Tahoma; font-size: 12px;">
+        <p style="font-size: 40px; margin: 0;">🌮</p>
+        <p style="margin: 4px 0 0 0;">TacOS</p>
+    </div>
+    <div id="nachosIcon" class="desktopicon" style="text-align: center; padding: 8px; cursor: pointer; color: #ffffff; font-family: Tahoma; font-size: 12px;">
+        <p style="font-size: 40px; margin: 0;">🧀</p>
+        <p style="margin: 4px 0 0 0;">NachOS</p>
+    </div>
+    <div id="dominosIcon" class="desktopicon" style="text-align: center; padding: 8px; cursor: pointer; color: #ffffff; font-family: Tahoma; font-size: 12px;">
+        <p style="font-size: 40px; margin: 0;">🍕</p>
+        <p style="margin: 4px 0 0 0;">DominOS</p>
+    </div>
+</div>
+
+<div class="window" id="welcome" style="top: calc(50% - 90px); left: calc(50% - 190px); border: 2px solid #1500ff; display: flex; flex-direction: column; position: absolute; font-family: Tahoma; z-index: 10;">
+    <div class="windowheader" id="welcomeheader" style="width: 100%; display: flex; align-items: center; cursor: grab; justify-content: space-between; background: #1500ff; color: #ffffff; padding: 4px; font-size: 11px; font-weight: bold;">
+        <div class="closebutton" id="welcomeclose" style="width: 16px; height: 16px; cursor: pointer; background-color: #ff4444; border-radius: 16px; border: 1px solid #666666; margin-left: 6px;"></div>
+        <p style="margin: 0; color: #ffffff; font-weight: bold;">Welcome to TacOS</p>
+        <div style="width: 16px; margin-right: 6px; height: 16px;"></div>
     </div>
     <div style="background: #ece9d8; padding: 20px;">
         <h1>Welcome to TacOS</h1>
@@ -14,25 +33,206 @@
     </div>
 </div>
 
-<div id="tacoRain"></div>
+<div class="window" id="facts" style="top: calc(50% - 120px); left: calc(50% - 190px); display: none; border: 2px solid #1500ff; flex-direction: column; position: absolute; font-family: Tahoma; z-index: 10;">
+    <div class="windowheader" id="factsheader" style="width: 100%; display: flex; align-items: center; cursor: grab; justify-content: space-between; background: #1500ff; color: #ffffff; padding: 4px; font-size: 11px; font-weight: bold;">
+        <div class="closebutton" id="factsclose" style="width: 16px; height: 16px; cursor: pointer; background-color: #ff4444; border-radius: 16px; border: 1px solid #666666; margin-left: 6px;"></div>
+        <p style="margin: 0; color: #ffffff; font-weight: bold;">TacOS</p>
+        <div style="width: 16px; margin-right: 6px; height: 16px;"></div>
+    </div>
+    <div style="background-color: #ffffff; margin: 6px; border-radius: 8px; width: 360px; padding: 16px; font-family: Tahoma;">
+        <p id="factText" style="font-size: 16px; min-height: 60px;">Click a button for a taco fact!</p>
+        <button onclick="showFact(0)" style="padding: 8px 12px; margin: 4px; cursor: pointer; background: #1500ff; color: #ffffff; border: none; border-radius: 4px; font-family: Tahoma;">Fact 1</button>
+        <button onclick="showFact(1)" style="padding: 8px 12px; margin: 4px; cursor: pointer; background: #1500ff; color: #ffffff; border: none; border-radius: 4px; font-family: Tahoma;">Fact 2</button>
+        <button onclick="showFact(2)" style="padding: 8px 12px; margin: 4px; cursor: pointer; background: #1500ff; color: #ffffff; border: none; border-radius: 4px; font-family: Tahoma;">Fact 3</button>
+        <button onclick="showFact(3)" style="padding: 8px 12px; margin: 4px; cursor: pointer; background: #1500ff; color: #ffffff; border: none; border-radius: 4px; font-family: Tahoma;">Fact 4</button>
+    </div>
+</div>
 
-<div style="position: fixed; bottom: 0; left: 0; width: 100%; height: 30px; display: flex; color: #ffffff; font-family: Tahoma; font-size: 11px; background: linear-gradient(to bottom, #4589e6, #1a52a5); border-top: 1px solid #6eb4ff;">
-    <div style="padding: 0 14px; display: flex; align-items: center; font-weight: bold; background-color: #348534;">
-        start
+<div class="window" id="nachos" style="top: calc(50% - 140px); left: calc(50% - 170px); display: none; border: 2px solid #1500ff; flex-direction: column; position: absolute; font-family: Tahoma; z-index: 10;">
+    <div class="windowheader" id="nachosheader" style="width: 100%; display: flex; align-items: center; cursor: grab; justify-content: space-between; background: #1500ff; color: #ffffff; padding: 4px; font-size: 11px; font-weight: bold;">
+        <div class="closebutton" id="nachosclose" style="width: 16px; height: 16px; cursor: pointer; background-color: #ff4444; border-radius: 16px; border: 1px solid #666666; margin-left: 6px;"></div>
+        <p style="margin: 0; color: #ffffff; font-weight: bold;">NachOS</p>
+        <div style="width: 16px; margin-right: 6px; height: 16px;"></div>
     </div>
-    <div style="flex: 1; padding-left: 6px; display: flex; align-items: center;">
-        TacOS
+    <div style="background-color: #ffffff; margin: 6px; border-radius: 8px; width: 320px; padding: 20px; font-family: Tahoma; text-align: center;">
+        <h2>Welcome to NachOS</h2>
+        <p>Please log in to load your nachos.</p>
+        <input type="text" placeholder="Username" style="width: 90%; padding: 6px; margin: 6px 0; font-family: Tahoma; border: 1px solid #1500ff;">
+        <input type="password" placeholder="Password" style="width: 90%; padding: 6px; margin: 6px 0; font-family: Tahoma; border: 1px solid #1500ff;">
+        <button onclick="nachosLogin()" style="padding: 8px 20px; margin-top: 8px; cursor: pointer; background: #1500ff; color: #ffffff; border: none; font-family: Tahoma;">Login</button>
+        <p id="nachosMsg" style="font-size: 12px; margin-top: 10px;"></p>
     </div>
+</div>
+
+<div class="window" id="dominos" style="top: calc(50% - 140px); left: calc(50% - 170px); display: none; border: 2px solid #1500ff; flex-direction: column; position: absolute; font-family: Tahoma; z-index: 10;">
+    <div class="windowheader" id="dominosheader" style="width: 100%; display: flex; align-items: center; cursor: grab; justify-content: space-between; background: #1500ff; color: #ffffff; padding: 4px; font-size: 11px; font-weight: bold;">
+        <div class="closebutton" id="dominosclose" style="width: 16px; height: 16px; cursor: pointer; background-color: #ff4444; border-radius: 16px; border: 1px solid #666666; margin-left: 6px;"></div>
+        <p style="margin: 0; color: #ffffff; font-weight: bold;">DominOS</p>
+        <div style="width: 16px; margin-right: 6px; height: 16px;"></div>
+    </div>
+    <div style="background-color: #ffffff; margin: 6px; border-radius: 8px; width: 320px; padding: 20px; font-family: Tahoma; text-align: center;">
+        <h2>Welcome to DominOS</h2>
+        <p>Order a pizza for your TacOS desktop!</p>
+        <button onclick="orderPizza('Pepperoni')" style="padding: 8px 20px; margin-top: 8px; cursor: pointer; background: #1500ff; color: #ffffff; border: none; font-family: Tahoma;">Pepperoni</button>
+        <button onclick="orderPizza('Cheese')" style="padding: 8px 20px; margin-top: 8px; cursor: pointer; background: #1500ff; color: #ffffff; border: none; font-family: Tahoma;">Cheese</button>
+        <button onclick="orderPizza('Veggie')" style="padding: 8px 20px; margin-top: 8px; cursor: pointer; background: #1500ff; color: #ffffff; border: none; font-family: Tahoma;">Veggie</button>
+        <p id="dominosMsg" style="font-size: 12px; margin-top: 10px;">Pick a pizza!</p>
+    </div>
+</div>
+
+<div id="tacoRain" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 4;"></div>
+
+<audio id="bgMusic" loop autoplay>
+    <source src="Raining_Tacos.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="dominosSound">
+    <source src="Pizza sound effect  Roblox.mp3" type="audio/mpeg">
+</audio>
+
+<div id="top" style="position: fixed; bottom: 0; left: 0; width: 100%; height: 30px; display: flex; color: #ffffff; font-family: Tahoma; font-size: 11px; background: linear-gradient(to bottom, #4589e6, #1a52a5); border-top: 1px solid #6eb4ff; z-index: 100;">
+    <div style="padding: 0 14px; display: flex; align-items: center; font-weight: bold; background-color: #348534;">start</div>
+    <button onclick="toggleMusic()" style="padding: 0 10px; cursor: pointer; background-color: #2458a8; border: none; color: #ffffff; font-family: Tahoma; font-size: 14px;">♪</button>
+    <div id="welcomeopen" style="flex: 1; padding-left: 6px; display: flex; align-items: center; cursor: pointer;">TacOS</div>
     <div style="padding: 0 10px; display: flex; align-items: center; background-color: #1500ff;">
         <p id="timeElement" style="margin: 0;"></p>
     </div>
 </div>
 
+<style>
+    @keyframes fall {
+        from { transform: translateY(-50px); }
+        to { transform: translateY(110vh); }
+    }
+</style>
+
 <script>
-    var timeText = document.querySelector("#timeElement");
-    timeText.innerHTML = new Date().toLocaleString();
+    var biggestIndex = 10;
+    var topBar = document.querySelector("#top");
+
+    function dragElement(element) {
+        var pos1 = 0;
+        var pos2 = 0;
+        var pos3 = 0;
+        var pos4 = 0;
+        if (document.getElementById(element.id + "header")) {
+            document.getElementById(element.id + "header").onmousedown = dragMouseDown;
+        } else {
+            element.onmousedown = dragMouseDown;
+        }
+        function dragMouseDown(e) {
+            e = e || window.event;
+            e.preventDefault();
+            pos3 = e.clientX;
+            pos4 = e.clientY;
+            document.onmouseup = closeDragElement;
+            document.onmousemove = elementDrag;
+        }
+        function elementDrag(e) {
+            e = e || window.event;
+            e.preventDefault();
+            pos1 = pos3 - e.clientX;
+            pos2 = pos4 - e.clientY;
+            pos3 = e.clientX;
+            pos4 = e.clientY;
+            element.style.top = (element.offsetTop - pos2) + "px";
+            element.style.left = (element.offsetLeft - pos1) + "px";
+        }
+        function closeDragElement() {
+            document.onmouseup = null;
+            document.onmousemove = null;
+        }
+    }
+
+    function closeWindow(element) {
+        element.style.display = "none";
+    }
+
+    function openWindow(element) {
+        element.style.display = "flex";
+        biggestIndex = biggestIndex + 1;
+        element.style.zIndex = biggestIndex;
+        topBar.style.zIndex = biggestIndex + 1;
+        if (element.id == "dominos") {
+            var dominosSound = document.querySelector("#dominosSound");
+            dominosSound.currentTime = 0;
+            dominosSound.play();
+        }
+    }
+
+    function initializeWindow(name) {
+        var screen = document.querySelector("#" + name);
+        var closeBtn = document.querySelector("#" + name + "close");
+        closeBtn.onclick = function() {
+            closeWindow(screen);
+        };
+        dragElement(screen);
+        screen.onmousedown = function() {
+            biggestIndex = biggestIndex + 1;
+            screen.style.zIndex = biggestIndex;
+            topBar.style.zIndex = biggestIndex + 1;
+        };
+    }
+
+    function handleIconTap(icon, screen) {
+        if (screen.style.display == "none") {
+            openWindow(screen);
+        } else {
+            closeWindow(screen);
+        }
+    }
+
+    document.querySelector("#welcomeopen").onclick = function() {
+        openWindow(document.querySelector("#welcome"));
+    };
+
+    initializeWindow("welcome");
+    initializeWindow("facts");
+    initializeWindow("nachos");
+    initializeWindow("dominos");
+
+    document.querySelector("#factsIcon").onclick = function() {
+        handleIconTap(document.querySelector("#factsIcon"), document.querySelector("#facts"));
+    };
+    document.querySelector("#nachosIcon").onclick = function() {
+        handleIconTap(document.querySelector("#nachosIcon"), document.querySelector("#nachos"));
+    };
+    document.querySelector("#dominosIcon").onclick = function() {
+        handleIconTap(document.querySelector("#dominosIcon"), document.querySelector("#dominos"));
+    };
+
+    function nachosLogin() {
+        document.querySelector("#nachosMsg").innerHTML = "Login successful! Enjoy your nachos 🧀";
+    }
+
+    function orderPizza(type) {
+        document.querySelector("#dominosMsg").innerHTML = "Your " + type + " pizza is on the way! 🍕";
+    }
+
+    function toggleMusic() {
+        var music = document.querySelector("#bgMusic");
+        if (music.paused == true) {
+            music.play();
+        } else {
+            music.pause();
+        }
+    }
+
+    var music = document.querySelector("#bgMusic");
+    music.play();
+    document.body.onclick = function() {
+        music.play();
+    };
+
+    var facts = ["Tacos were invented in Mexico!", "The word taco means plug or wad.", "Americans eat over 4 billion tacos a year.", "Tacos used to be for miners, not food!"];
+
+    function showFact(num) {
+        document.querySelector("#factText").innerHTML = facts[num];
+    }
+
+    document.querySelector("#timeElement").innerHTML = new Date().toLocaleString();
     setInterval(function() {
-        timeText.innerHTML = new Date().toLocaleString();
+        document.querySelector("#timeElement").innerHTML = new Date().toLocaleString();
     }, 1000);
 
     var tacoRain = document.querySelector("#tacoRain");
@@ -47,21 +247,6 @@
         tacoRain.appendChild(taco);
     }
 </script>
-
-<style>
-    #tacoRain {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        pointer-events: none;
-    }
-    @keyframes fall {
-        from { transform: translateY(-50px); }
-        to { transform: translateY(110vh); }
-    }
-</style>
 
 </body>
 </html>

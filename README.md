@@ -3,7 +3,10 @@
 Welcome to **TacOS**, a retro-inspired WebOS interface featuring custom windows, apps, sounds and raining tacos!!!
 This is my first WebOS ever!!
 I hope you liked, feel free to give feedbacks!!
-Also, I used AI to debugging my code and to learn how can I use audio files in TacOS.
+
+## 🤖 AI Usage
+
+I used AI to debugging my code and to learn how can I add audio files in TacOS.
 
 ## 👥 Credits
 

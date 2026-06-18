@@ -6,7 +6,7 @@ I hope you liked, feel free to give feedbacks!!
 
 ## 🤖 AI Usage
 
-I used AI to debugging my code and to learn how can I add audio files in TacOS.
+I used AI to debugging my code and to learn how can I add audio files in HTML.
 
 ## 👥 Credits
 

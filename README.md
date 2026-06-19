@@ -2,7 +2,7 @@
 
 Welcome to **TacOS**, a retro-inspired WebOS interface featuring custom windows, apps, sounds and raining tacos!!!
 This is my first WebOS ever!!
-I hope you liked, feel free to give feedbacks!!
+I hope you liked it, feel free to give feedbacks!!
 
 ## 🤖 AI Usage
 
